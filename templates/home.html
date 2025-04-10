@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>HELLO</h2>
+    <div class="grid-container">
+        {% for photo in photos %}
+            <div class="post">
+                <img src="{{ photo.image.url }}">
+                <p>{{ photo.caption }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <h2>Soyez les bienvenus sur notre site</h2>
+    <h2><p><a href="{% url 'tache' %}">Créer des tâches</a></p></h2>
+   
+       
+    </div>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+    <head>
+        <title>Hackaton</title>
+        <link rel="stylesheet" href="{% static 'authentication/app.css' %}">
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1>Hackaton</h1>
+            {% if user.is_authenticated %}
+                <p>Salut, {{ user }} !</p>
+        
+                <p><a href="{% url 'home' %}">Accueil</a></p>
+                
+            
+                <p><a href="{% url 'password_change' %}">Changer le mot de passe</a></p>
+                <p><form action="/logout/" method="post" >
+                    {% csrf_token %}
+                    <button type="submit">Se déconnecter</button>
+                    </form></p>
+                
+            {% endif %}
+        </div>
+        <div class="main">
+            {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>
